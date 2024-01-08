@@ -1,0 +1,24 @@
+/**
+ * core 모듈에서는 bootJar를 생성하지 않는다.
+ * 애플리케이션을 시작하거나 그런 완성품이 만들어지지 않았기 때문이다.
+ */
+bootJar {
+    enabled = false
+}
+
+/**
+ * 하지만 jar는 생성한다.
+ * 왜냐하면 다른 모듈에서 core 모듈을 의존성으로 가져가서 조립해서 쓰기 때문이다.
+ * 나중에 core 모듈을 가져가서 애플리케이션을 완성한 모듈이 있다면, 그녀석을 두 옵션을 반대로 설정하면 된다.
+ */
+jar {
+    enabled = true
+}
+
+/**
+ * database entity를 만들기 위해 jpa를 추가했다.
+ */
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    runtimeOnly 'com.h2database:h2'
+}
