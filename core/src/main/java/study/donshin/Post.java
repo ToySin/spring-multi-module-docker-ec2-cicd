@@ -1,8 +1,10 @@
 package study.donshin;
 
 import jakarta.persistence.*;
+import lombok.*;
 
 @Entity
+@Getter @Setter
 public class Post {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
