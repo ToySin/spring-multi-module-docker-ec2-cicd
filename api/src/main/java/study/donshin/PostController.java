@@ -2,8 +2,8 @@ package study.donshin;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.io.IOException;
@@ -14,15 +14,15 @@ import java.nio.ByteBuffer;
 public class PostController {
 
     private final PostService postService;
-    private final S3Upload s3Upload;
+    private final S3Uploader s3Uploader;
 
     @ResponseBody
     @PostMapping(value = "/post", consumes = "multipart/form-data")
-    public String save(@RequestBody CreatePostForm form) throws IOException {
+    public String save(@ModelAttribute CreatePostForm form) throws IOException {
         ByteBuffer fileBody = ByteBuffer.wrap(form.getFile().getBytes());
         String fileContentType = form.getFile().getContentType();
         long fileContentLength = form.getFile().getSize();
-        String uploadedFileName = s3Upload.upload(fileBody, fileContentType, fileContentLength);
+        String uploadedFileName = s3Uploader.upload(fileBody, fileContentType, fileContentLength);
 
         Post post = new Post();
         post.setTitle(form.getTitle());
