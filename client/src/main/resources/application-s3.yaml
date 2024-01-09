@@ -1,0 +1,7 @@
+env:
+  aws:
+    s3:
+      credentials:
+        accessKey: ${AWS_ACCESS_KEY}
+        secretKey: ${AWS_SECRET_KEY}
+      bucket: ${AWS_BUCKET}
