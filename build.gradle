@@ -71,10 +71,3 @@ subprojects {
         useJUnitPlatform()
     }
 }
-
-project(':api') {
-    dependencies {
-        implementation project(':core')
-        implementation project(':client-layer:client')
-    }
-}
