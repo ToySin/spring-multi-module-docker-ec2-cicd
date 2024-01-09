@@ -1,0 +1,16 @@
+bootJar {
+    enabled = false
+}
+
+jar {
+    enabled = true
+}
+
+/**
+ * aws sdk를 사용하기 위해 필요한 의존성을 추가했다.
+ * s3를 사용해볼것이다.
+ */
+dependencies {
+    implementation(platform 'software.amazon.awssdk:bom:2.21.1')
+    implementation 'software.amazon.awssdk:s3'
+}
