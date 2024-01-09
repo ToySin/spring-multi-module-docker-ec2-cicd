@@ -2,11 +2,6 @@ spring:
   profiles:
     include:
       - s3
-  config:
-    name:
-      - api
-      - client
-      - core
 
   servlet:
     multipart:
