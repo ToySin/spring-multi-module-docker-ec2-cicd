@@ -1,10 +1,10 @@
 package study.donshin;
 
-import lombok.Getter;
+import lombok.Data;
 import org.springframework.web.multipart.MultipartFile;
 
 
-@Getter
+@Data
 public class CreatePostForm {
 
     private String title;

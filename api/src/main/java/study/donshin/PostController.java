@@ -19,6 +19,7 @@ public class PostController {
     @ResponseBody
     @PostMapping(value = "/post", consumes = "multipart/form-data")
     public String save(@ModelAttribute CreatePostForm form) throws IOException {
+
         ByteBuffer fileBody = ByteBuffer.wrap(form.getFile().getBytes());
         String fileContentType = form.getFile().getContentType();
         long fileContentLength = form.getFile().getSize();
