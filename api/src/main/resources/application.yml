@@ -1,0 +1,14 @@
+spring:
+  profiles:
+    include:
+      - s3
+  config:
+    name:
+      - api
+      - client
+      - core
+
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 10MB
