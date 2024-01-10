@@ -32,19 +32,17 @@ jobs:
     # Docker Image Build 수행
     - name: Docker Setup QEMU
       uses: docker/setup-qemu-action@v3.0.0
-      with:
-        platforms: arm64
 
     - name: Docker Setup Buildx
       uses: docker/setup-buildx-action@v3.0.0
     
     - name: Build Docker Image
       run: |
-        docker buildx build . --platform=linux/arm64 \
-        --file Dockerfile --tag ${{ env.DOCKER_IMAGE }}:${{ env.DOCKER_VERSION }}-arm64 \
+        docker buildx build --platform linux/arm64,linux/amd64 \
+        --tag ${{ env.DOCKER_IMAGE }}:${{ env.DOCKER_VERSION }} \
         --build-arg AWS_ACCESS_KEY="${{ secrets.AWS_ACCESS_KEY }}" \
         --build-arg AWS_SECRET_KEY="${{ secrets.AWS_SECRET_KEY }}" \
-        --build-arg AWS_BUCKET="${{ secrets.AWS_BUCKET }}"
+        --build-arg AWS_BUCKET="${{ secrets.AWS_BUCKET }} ."
 
     # Docker Login 수행 (ghcr.io)
     - name: Login Docker
@@ -56,4 +54,4 @@ jobs:
     
     # Docker Image Push 수행
     - name: Push Docker Image
-      run: docker push ${{ env.DOCKER_IMAGE }}:${{ env.DOCKER_VERSION }}-arm64
+      run: docker push ${{ env.DOCKER_IMAGE }}:${{ env.DOCKER_VERSION }}
