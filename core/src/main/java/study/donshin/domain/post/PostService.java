@@ -1,4 +1,4 @@
-package study.donshin;
+package study.donshin.domain.post;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

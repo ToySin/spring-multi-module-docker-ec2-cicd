@@ -1,4 +1,4 @@
-package study.donshin;
+package study.donshin.s3client;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;

@@ -1,4 +1,4 @@
-package study.donshin;
+package study.donshin.s3client;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;

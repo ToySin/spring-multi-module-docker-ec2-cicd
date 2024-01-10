@@ -1,4 +1,4 @@
-package study.donshin;
+package study.donshin.api;
 
 import lombok.Data;
 import org.springframework.web.multipart.MultipartFile;

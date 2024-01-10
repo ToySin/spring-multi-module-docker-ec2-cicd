@@ -1,10 +1,13 @@
-package study.donshin;
+package study.donshin.api;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import study.donshin.domain.post.Post;
+import study.donshin.domain.post.PostService;
+import study.donshin.s3client.S3Uploader;
 
 import java.io.IOException;
 import java.nio.ByteBuffer;
