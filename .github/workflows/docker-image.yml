@@ -30,9 +30,17 @@ jobs:
         arguments: build
 
     # Docker Image Build 수행
+    - name: Docker Setup QEMU
+      uses: docker/setup-qemu-action@v3.0.0
+      with:
+        platforms: arm64
+
+    - name: Docker Setup Buildx
+      uses: docker/setup-buildx-action@v3.0.0
+    
     - name: Build Docker Image
       run: |
-        docker build . --file Dockerfile --tag ${{ env.DOCKER_IMAGE }}:latest \
+        docker build . --platform=linux/amd64 --file Dockerfile --tag ${{ env.DOCKER_IMAGE }}:latest \
         --build-arg AWS_ACCESS_KEY="${{ secrets.AWS_ACCESS_KEY }}" \
         --build-arg AWS_SECRET_KEY="${{ secrets.AWS_SECRET_KEY }}" \
         --build-arg AWS_BUCKET="${{ secrets.AWS_BUCKET }}" \
