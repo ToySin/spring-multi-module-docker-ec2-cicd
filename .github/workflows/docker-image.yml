@@ -40,9 +40,9 @@ jobs:
       run: |
         docker buildx build --platform linux/arm64,linux/amd64 \
         --tag ${{ env.DOCKER_IMAGE }}:${{ env.DOCKER_VERSION }} \
-        --build-arg AWS_ACCESS_KEY="${{ secrets.AWS_ACCESS_KEY }}" \
-        --build-arg AWS_SECRET_KEY="${{ secrets.AWS_SECRET_KEY }}" \
-        --build-arg AWS_BUCKET="${{ secrets.AWS_BUCKET }} ."
+        --build-arg AWS_ACCESS_KEY=${{ secrets.AWS_ACCESS_KEY }} \
+        --build-arg AWS_SECRET_KEY=${{ secrets.AWS_SECRET_KEY }} \
+        --build-arg AWS_BUCKET=${{ secrets.AWS_BUCKET }} .
 
     # Docker Login 수행 (ghcr.io)
     - name: Login Docker
