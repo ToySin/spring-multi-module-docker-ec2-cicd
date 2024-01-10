@@ -40,7 +40,7 @@ jobs:
     
     - name: Build Docker Image
       run: |
-        docker build . --platform=linux/amd64 --file Dockerfile --tag ${{ env.DOCKER_IMAGE }}:latest \
+        docker buildx build . --platform=linux/amd64 --file Dockerfile --tag ${{ env.DOCKER_IMAGE }}:latest \
         --build-arg AWS_ACCESS_KEY="${{ secrets.AWS_ACCESS_KEY }}" \
         --build-arg AWS_SECRET_KEY="${{ secrets.AWS_SECRET_KEY }}" \
         --build-arg AWS_BUCKET="${{ secrets.AWS_BUCKET }}" \
