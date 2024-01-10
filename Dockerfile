@@ -1,7 +1,7 @@
 FROM openjdk:21
 
 WORKDIR /usr/src/app
-COPY ./build/libs/*.jar app.jar
+COPY ./api/build/libs/*.jar app.jar
 
 # 빌드가 실행되는 환경(로컬이거나, github actions이거나 등)에서 해당 이름에 해당되는 환경변수를 가져온다.
 ARG AWS_ACCESS_KEY
