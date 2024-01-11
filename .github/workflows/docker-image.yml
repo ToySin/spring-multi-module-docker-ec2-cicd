@@ -27,7 +27,8 @@ jobs:
     - name: Create AWS Credentials file
       run: |
         mkdir ~/.aws
-        echo "[default]\nAWS_ACCESS_KEY=${{ secrets.AWS_ACCESS_KEY }}\nAWS_SECRET_KEY=${{ secrets.AWS_SECERT_KEY }}" \
+        echo "[default]\naws_access_key_id=${{ secrets.AWS_ACCESS_KEY }}\n\
+        aws_secret_access_key=${{ secrets.AWS_SECERT_KEY }}" \
         >> ~/.aws/credentials
 
     - name: Build with Gradle
