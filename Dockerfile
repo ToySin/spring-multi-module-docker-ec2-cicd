@@ -18,7 +18,7 @@ RUN chmod 4755 app.jar
 ## 도커 컨테이너에 자격 증명파일을 복사하는 방식
 # GITHUB ACTIONS에서 자격 증명 파일을 만들고 위치 수정해줘야함
 RUN mkdir /home/.aws
-COPY ~/.aws/credentials /home/.aws/credentials
+COPY ./.aws/credentials /home/.aws/credentials
 RUN chmod 400 /home/.aws/credentials
 
 ## AWS 자격 증명파일을 읽을 수 없도록 유저를 생성한다.
