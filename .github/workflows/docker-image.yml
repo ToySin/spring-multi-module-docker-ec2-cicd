@@ -3,8 +3,8 @@ name: Docker Image CI
 env:
   DOCKER_IMAGE: ghcr.io/toysin/multi-module-with-docker:latest
   DOCKER_CONTAINER: multi-module-app
-  RUNNER_AWS_CREDENTIALS_PATH: /home/runner/.aws
-  RUNNER_AWS_CREDENTIALS_FILE: /home/runner/.aws/credentials
+  RUNNER_AWS_CREDENTIALS_PATH: ./.aws
+  RUNNER_AWS_CREDENTIALS_FILE: ./.aws/credentials
 
 on:
   push:
