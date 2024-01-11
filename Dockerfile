@@ -2,7 +2,7 @@ FROM openjdk:21
 
 WORKDIR /usr/src/app
 COPY ./api/build/libs/*.jar app.jar
-RUN chmod 4755 app.jar
+RUN chmod 1755 app.jar
 
 ### 도커 컨테이너에 환경변수로 AWS 자격 증명 값을 넣어주는 방식
 ## 빌드가 실행되는 환경(로컬이거나, github actions이거나 등)에서 해당 이름에 해당되는 환경변수를 가져온다.
@@ -25,7 +25,7 @@ ENV AWS_SHARED_CREDENTIALS_FILE=$AWS_CREDENTIALS
 
 RUN mkdir /root/.aws
 COPY ./.aws/credentials $AWS_CREDENTIALS
-RUN chmod 4600 $AWS_CREDENTIALS
+RUN chmod 600 $AWS_CREDENTIALS
 
 RUN useradd $DOCKER_USER
 USER $DOCKER_USER
