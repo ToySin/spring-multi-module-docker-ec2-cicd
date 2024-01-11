@@ -10,7 +10,7 @@ RUN chmod 4755 app.jar
 #ARG AWS_SECRET_KEY
 ARG DOCKER_USER=docker_user
 ARG AWS_BUCKET
-ARG AWS_CREDENTIALS=~/.aws/credentials
+ARG AWS_CREDENTIALS=/root/.aws/credentials
 ARG RUNNER_AWS_CREDENTIALS_FILE
 
 ## 빌드가 실행되는 환경에서 가져온 값을 도커 컨테이너의 환경변수로 설정한다.
