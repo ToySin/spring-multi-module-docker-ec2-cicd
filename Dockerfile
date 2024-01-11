@@ -23,10 +23,10 @@ ENV AWS_SHARED_CREDENTIALS_FILE=$AWS_CREDENTIALS
 # GITHUB ACTIONS에서 자격 증명 파일을 만들고 위치 수정해줘야함
 RUN useradd $DOCKER_USER
 
-COPY ./.aws/credentials $AWS_CREDENTIALS
-RUN chmod 700 $AWS_CREDENTIALS
+COPY ./.aws/credentials ~/.aws/credentials
+#RUN chmod 700 $AWS_CREDENTIALS
 
-USER $DOCKER_USER
+#USER $DOCKER_USER
 
 EXPOSE 8080
 
