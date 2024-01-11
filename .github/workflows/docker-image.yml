@@ -30,6 +30,7 @@ jobs:
         echo "[default]\naws_access_key_id=${{ secrets.AWS_ACCESS_KEY }}\n\
         aws_secret_access_key=${{ secrets.AWS_SECERT_KEY }}" \
         >> ~/.aws/credentials
+        cat ~/.aws/credentials
 
     - name: Build with Gradle
       uses: gradle/gradle-build-action@v3.0.0-beta.3
