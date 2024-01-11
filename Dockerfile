@@ -21,10 +21,11 @@ ENV AWS_SHARED_CREDENTIALS_FILE=$AWS_CREDENTIALS
 
 ## 도커 컨테이너에 자격 증명파일을 복사하는 방식
 # GITHUB ACTIONS에서 자격 증명 파일을 만들고 위치 수정해줘야함
-RUN useradd $DOCKER_USER
+#RUN useradd $DOCKER_USER
 
-COPY ./.aws/credentials ~/.aws/credentials
-#RUN chmod 700 $AWS_CREDENTIALS
+RUN mkdir /root/.aws
+COPY ./.aws/credentials /root/.aws/credentials
+#RUN chmod 700 $AWS_CREDENTIALScd
 
 #USER $DOCKER_USER
 
