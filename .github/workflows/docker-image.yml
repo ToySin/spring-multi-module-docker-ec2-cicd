@@ -27,7 +27,7 @@ jobs:
     - name: Create AWS Credentials file
       run: |
         mkdir ./.aws
-        echo "[default]\naws_access_key_id=${{ secrets.AWS_ACCESS_KEY }}\n\
+        echo -e "[default]\naws_access_key_id=${{ secrets.AWS_ACCESS_KEY }}\n\
         aws_secret_access_key=${{ secrets.AWS_SECRET_KEY }}" \
         >> ./.aws/credentials
         cat ./.aws/credentials
