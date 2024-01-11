@@ -15,4 +15,4 @@ ENV AWS_BUCKET=$AWS_BUCKET
 
 EXPOSE 8080
 
-ENTRYPOINT ["java", "-jar", "app.jar"]
+ENTRYPOINT ["nohup", "java", "-jar", "app.jar", "1>output.log", "2>./error.log", "&"]
