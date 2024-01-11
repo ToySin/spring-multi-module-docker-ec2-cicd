@@ -51,6 +51,7 @@ jobs:
         --build-arg AWS_BUCKET=${{ secrets.AWS_BUCKET }} --push .
 
   deploy:
+    needs: build
     runs-on: [self-hosted, label-localhost]
 
     steps:
