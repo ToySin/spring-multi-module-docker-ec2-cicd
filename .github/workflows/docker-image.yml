@@ -66,9 +66,9 @@ jobs:
       id: check-container
       run: |
         if docker ps -a --format '{{.Names}}' | grep ${{ env.DOCKER_CONTAINER }}; then
-          echo "::set-output name=container_exists::true"
+          echo "container_exists=true" >> $GITHUB_OUTPUT
         else
-          echo "::set-output name=container_exists::false"
+          echo "container_exists=false" >> $GITHUB_OUTPUT
         fi
     
     - name: Stop and Remove Current Container
