@@ -62,10 +62,11 @@ jobs:
         username: ${{ github.repository_owner }}
         password: ${{ secrets.CR_PAT }}
     
-    - name: Deploy Container
-      run: |
-        docker stop ${{ env.DOCKER_CONTAINER }} && docker rm ${{ env.DOCKER_CONTAINER }}
-        docker rmi ${{ env.DOCKER_IMAGE}}
-        docker pull ${{ env.DOCKER_IMAGE}}
-        docker run -d -p 8887:8080 --name ${{ env.DOCKER_CONTAINER }} \
-        --restart always ${{ env.DOCKER_IMAGE }}
+    - name: Stop and Remove Current Container
+      run: docker stop ${{ env.DOCKER_CONTAINER }} && docker rm ${{ env.DOCKER_CONTAINER }}
+      
+    - name: Pull Latest Image
+      run: docker pull ${{ env.DOCKER_IMAGE }}
+      
+    - name: Start Container
+      run: docker run -d -p 8887:8080 --name ${{ env.DOCKER_CONTAINER }} --restart always ${{ env.DOCKER_IMAGE }}
