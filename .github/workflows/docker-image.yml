@@ -54,9 +54,9 @@ jobs:
       run: |
         docker buildx build --platform linux/arm64,linux/amd64 \
         --tag ${{ env.DOCKER_IMAGE }} \
-        --build-arg AWS_ACCESS_KEY=${{ secrets.AWS_ACCESS_KEY }} \
-        --build-arg AWS_SECRET_KEY=${{ secrets.AWS_SECRET_KEY }} \
         --build-arg AWS_BUCKET=${{ secrets.AWS_BUCKET }} --push .
+#        --build-arg AWS_ACCESS_KEY=${{ secrets.AWS_ACCESS_KEY }} \
+#        --build-arg AWS_SECRET_KEY=${{ secrets.AWS_SECRET_KEY }} \
 
   deploy:
     needs: build
