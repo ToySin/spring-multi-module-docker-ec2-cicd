@@ -28,7 +28,7 @@ jobs:
       run: |
         mkdir ~/.aws
         echo "[default]\naws_access_key_id=${{ secrets.AWS_ACCESS_KEY }}\n\
-        aws_secret_access_key=${{ secrets.AWS_SECERT_KEY }}" \
+        aws_secret_access_key=${{ secrets.AWS_SECRET_KEY }}" \
         >> ~/.aws/credentials
         cat ~/.aws/credentials
 
